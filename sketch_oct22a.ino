@@ -243,7 +243,8 @@ void blink()             // Выполняется  каждую секунду
     else
     {
       TimerHour--;
-      TimerMinute = 59; 
+      TimerMinute = 59;
+      TimerSecond = 59; 
     }   
    }
    else
@@ -936,7 +937,7 @@ tm1637.set(BRIGHTNESS);
  
 initDS3231();                     // Инициализация регистров DS3231 
 
-attachInterrupt(0, blink, CHANGE);// Устанавливаем обработчик прерывания для мигания секундами по сигналу с DS3231 
+attachInterrupt(0, blink, FALLING);// Устанавливаем обработчик прерывания для мигания секундами по сигналу с DS3231 
 
 TicksCount = 0;
 Timer1.initialize(100000);        // Инициализуем таймер на 0.1 сек
